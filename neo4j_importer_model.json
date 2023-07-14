@@ -1,0 +1,282 @@
+{
+  "version": "0.14.0-beta.0",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n1",
+        "position": {
+          "x": 0,
+          "y": 300
+        },
+        "caption": "Blousecolor"
+      },
+      {
+        "id": "n2",
+        "position": {
+          "x": 111,
+          "y": 635
+        },
+        "caption": "Products"
+      },
+      {
+        "id": "n3",
+        "position": {
+          "x": 300,
+          "y": 300
+        },
+        "caption": "Border"
+      }
+    ],
+    "relationships": [
+      {
+        "id": "n0",
+        "type": "BLOUSECOLOR",
+        "fromId": "n2",
+        "toId": "n1"
+      },
+      {
+        "id": "n1",
+        "type": "BORDER",
+        "fromId": "n2",
+        "toId": "n3"
+      }
+    ]
+  },
+  "dataModel": {
+    "configurations": {
+      "idsToIgnore": []
+    },
+    "fileModel": {
+      "fileSchemas": {
+        "products.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "product_id",
+              "type": "integer",
+              "sample": "268481738",
+              "include": true
+            }
+          ]
+        },
+        "blouse_color.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "index",
+              "type": "integer",
+              "sample": "0",
+              "include": true
+            },
+            {
+              "name": "attributevalue",
+              "type": "string",
+              "sample": "Green",
+              "include": true
+            }
+          ]
+        },
+        "relations.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "product_id",
+              "type": "integer",
+              "sample": "268481738",
+              "include": true
+            },
+            {
+              "name": "attibutename",
+              "type": "string",
+              "sample": "blouse_color",
+              "include": true
+            },
+            {
+              "name": "attributevalue",
+              "type": "string",
+              "sample": "Green",
+              "include": true
+            }
+          ]
+        },
+        "border.csv": {
+          "expanded": true,
+          "fields": [
+            {
+              "name": "index",
+              "type": "integer",
+              "sample": "14996",
+              "include": true
+            },
+            {
+              "name": "attributevalue",
+              "type": "string",
+              "sample": "Embroidered",
+              "include": true
+            }
+          ]
+        }
+      }
+    },
+    "graphModel": {
+      "nodeSchemas": {
+        "n1": {
+          "label": "Blousecolor",
+          "additionLabels": [],
+          "labelProperties": [],
+          "properties": [
+            {
+              "property": "index",
+              "type": "integer",
+              "identifier": "Qj8vPIBk6dWD4ZlM6e_6t"
+            },
+            {
+              "property": "attributevalue",
+              "type": "string",
+              "identifier": "V-5fY4pkbtF-9QNcFCaQV"
+            }
+          ],
+          "key": {
+            "properties": [
+              "V-5fY4pkbtF-9QNcFCaQV"
+            ]
+          }
+        },
+        "n2": {
+          "label": "Products",
+          "additionLabels": [],
+          "labelProperties": [],
+          "properties": [
+            {
+              "property": "product_id",
+              "type": "string",
+              "identifier": "YhugGI5-fG65s6c-iUDH2"
+            }
+          ],
+          "key": {
+            "properties": [
+              "YhugGI5-fG65s6c-iUDH2"
+            ]
+          }
+        },
+        "n3": {
+          "label": "Border",
+          "additionLabels": [],
+          "labelProperties": [],
+          "properties": [
+            {
+              "property": "attributevalue",
+              "type": "string",
+              "identifier": "_65ysX652cOFyPhYi3Ies"
+            }
+          ],
+          "key": {
+            "properties": [
+              "_65ysX652cOFyPhYi3Ies"
+            ]
+          }
+        }
+      },
+      "relationshipSchemas": {
+        "n0": {
+          "type": "BLOUSECOLOR",
+          "sourceNodeSchema": "n2",
+          "targetNodeSchema": "n1",
+          "properties": [
+            {
+              "property": "attibutename",
+              "type": "string",
+              "identifier": "k0Uu5xpN-7VNoA10lRqup"
+            }
+          ]
+        },
+        "n1": {
+          "type": "BORDER",
+          "sourceNodeSchema": "n2",
+          "targetNodeSchema": "n3",
+          "properties": [
+            {
+              "property": "attibutename",
+              "type": "string",
+              "identifier": "lPHonLaIiws_s-kFf5E8m"
+            }
+          ]
+        }
+      }
+    },
+    "mappingModel": {
+      "nodeMappings": {
+        "n1": {
+          "nodeSchema": "n1",
+          "fileSchema": "blouse_color.csv",
+          "mappings": [
+            {
+              "field": "index"
+            },
+            {
+              "field": "attributevalue"
+            }
+          ]
+        },
+        "n2": {
+          "nodeSchema": "n2",
+          "fileSchema": "products.csv",
+          "mappings": [
+            {
+              "field": "product_id"
+            }
+          ]
+        },
+        "n3": {
+          "nodeSchema": "n3",
+          "fileSchema": "border.csv",
+          "mappings": [
+            {
+              "field": "attributevalue"
+            }
+          ]
+        }
+      },
+      "relationshipMappings": {
+        "n0": {
+          "relationshipSchema": "n0",
+          "mappings": [
+            {
+              "field": "attibutename"
+            }
+          ],
+          "sourceMappings": [
+            {
+              "field": "product_id"
+            }
+          ],
+          "targetMappings": [
+            {
+              "field": "attributevalue"
+            }
+          ],
+          "fileSchema": "relations.csv"
+        },
+        "n1": {
+          "relationshipSchema": "n1",
+          "mappings": [
+            {
+              "field": "attibutename"
+            }
+          ],
+          "sourceMappings": [
+            {
+              "field": "product_id"
+            }
+          ],
+          "targetMappings": [
+            {
+              "field": "attributevalue"
+            }
+          ],
+          "fileSchema": "relations.csv"
+        }
+      }
+    }
+  }
+}
